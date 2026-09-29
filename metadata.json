@@ -1,0 +1,6 @@
+{
+  "name": "NAVRAKSH v4.2",
+  "description": "Intelligent Navratri Pass Management & Sales Optimization with real-time DAA algorithms, Red-Black Tree visualizer, Knapsack allocation optimizer, and constant-time QR turnstile gate verification.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
