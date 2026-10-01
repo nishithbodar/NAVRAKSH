@@ -287,6 +287,91 @@ export const Dashboard: React.FC<DashboardProps> = ({ onNavigate }) => {
           </div>
         </div>
       </div>
+
+      {/* Compact Algorithm Intelligence Section */}
+      <div className="rounded-xl p-5 bg-surface-container-low border border-surface-container/60 shadow-md space-y-4">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-3 border-b border-surface-container">
+          <div className="flex items-center gap-2">
+            <span className="w-2.5 h-2.5 rounded-full bg-primary animate-pulse"></span>
+            <h3 className="font-title-sm text-title-sm font-bold text-on-surface">
+              Algorithm Intelligence Status
+            </h3>
+            <span className="text-xs px-2 py-0.5 rounded bg-primary/10 text-primary font-mono font-medium">
+              DAA Engine Active
+            </span>
+          </div>
+          <div className="flex items-center gap-3">
+            <button
+              onClick={() => onNavigate('benchmark-lab')}
+              className="text-xs font-mono text-primary hover:underline flex items-center gap-1"
+            >
+              Benchmark Lab &rarr;
+            </button>
+            <button
+              onClick={() => onNavigate('complexity-analyzer')}
+              className="text-xs font-mono text-tertiary hover:underline flex items-center gap-1"
+            >
+              Complexity Analyzer &rarr;
+            </button>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 text-xs font-mono">
+          <button
+            onClick={() => onNavigate('allocation-optimizer')}
+            className="p-3 rounded-lg bg-surface-container-lowest border border-surface-container/40 text-left hover:border-primary/50 transition-all"
+          >
+            <span className="text-[10px] text-on-surface-variant block uppercase">Bounded Knapsack</span>
+            <span className="font-bold text-primary block mt-0.5">DP Solver</span>
+            <span className="text-[10px] text-emerald-400 block mt-1">O(n·W) Optimal</span>
+          </button>
+
+          <button
+            onClick={() => onNavigate('group-booking')}
+            className="p-3 rounded-lg bg-surface-container-lowest border border-surface-container/40 text-left hover:border-primary/50 transition-all"
+          >
+            <span className="text-[10px] text-on-surface-variant block uppercase">Group Quota</span>
+            <span className="font-bold text-amber-300 block mt-0.5">Greedy Ratio</span>
+            <span className="text-[10px] text-on-surface-variant block mt-1">O(m log m) Fast</span>
+          </button>
+
+          <button
+            onClick={() => onNavigate('dsa-visualizer')}
+            className="p-3 rounded-lg bg-surface-container-lowest border border-surface-container/40 text-left hover:border-primary/50 transition-all"
+          >
+            <span className="text-[10px] text-on-surface-variant block uppercase">Pass Indexing</span>
+            <span className="font-bold text-cyan-400 block mt-0.5">Red-Black Tree</span>
+            <span className="text-[10px] text-emerald-400 block mt-1">O(log n) Balanced</span>
+          </button>
+
+          <button
+            onClick={() => onNavigate('event-conflicts')}
+            className="p-3 rounded-lg bg-surface-container-lowest border border-surface-container/40 text-left hover:border-primary/50 transition-all"
+          >
+            <span className="text-[10px] text-on-surface-variant block uppercase">Slot Conflict</span>
+            <span className="font-bold text-secondary block mt-0.5">Interval Tree</span>
+            <span className="text-[10px] text-emerald-400 block mt-1">O(log n + k) Detect</span>
+          </button>
+
+          <button
+            onClick={() => onNavigate('heap-comparison')}
+            className="p-3 rounded-lg bg-surface-container-lowest border border-surface-container/40 text-left hover:border-primary/50 transition-all"
+          >
+            <span className="text-[10px] text-on-surface-variant block uppercase">VIP Dispatch</span>
+            <span className="font-bold text-tertiary block mt-0.5">Binary & Fib Heap</span>
+            <span className="text-[10px] text-on-surface-variant block mt-1">O(1) / O(log n)</span>
+          </button>
+
+          <button
+            onClick={() => onNavigate('benchmark-lab')}
+            className="p-3 rounded-lg bg-surface-container-lowest border border-surface-container/40 text-left hover:border-primary/50 transition-all"
+          >
+            <span className="text-[10px] text-on-surface-variant block uppercase">System Health</span>
+            <span className="font-bold text-emerald-400 block mt-0.5">All 9 Labs Ready</span>
+            <span className="text-[10px] text-on-surface-variant block mt-1">Empirical Verified</span>
+          </button>
+        </div>
+      </div>
     </div>
   );
 };

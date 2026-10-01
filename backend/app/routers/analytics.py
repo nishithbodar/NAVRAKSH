@@ -16,6 +16,16 @@ def get_top_sellers(k: int = 5, method: str = "quickselect", db: Session = Depen
     result = AnalyticsService.get_top_sellers(db, k=k, method=method)
     return success_response(data=result)
 
+@router.get("/top-k/compare", response_model=dict)
+def compare_top_k(k: int = 5, dataset_size: int = 1000):
+    result = AnalyticsService.compare_top_k(k=k, dataset_size=dataset_size)
+    return success_response(data=result)
+
+@router.get("/exact-vs-approx", response_model=dict)
+def exact_vs_approx(n_items: int = 15, capacity: int = 500):
+    result = AnalyticsService.exact_vs_approx(n_items=n_items, capacity=capacity)
+    return success_response(data=result)
+
 @router.get("/top-events", response_model=dict)
 def get_top_events(k: int = 3, db: Session = Depends(get_db)):
     from app.models.event import Event

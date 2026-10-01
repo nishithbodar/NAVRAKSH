@@ -15,6 +15,7 @@ def run_benchmark(req: BenchmarkRequest, db: Session = Depends(get_db)):
         category=req.algorithm_category,
         algorithms=req.algorithms,
         dataset_size=req.dataset_size,
+        input_sizes=req.input_sizes,
         dataset_type=req.dataset_type
     )
     return success_response(data=result)

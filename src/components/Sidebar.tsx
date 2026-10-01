@@ -22,30 +22,36 @@ interface NavSection {
 
 const navSections: NavSection[] = [
   {
-    title: 'Overview',
+    title: 'Festival Operations',
     items: [
       { id: 'dashboard', label: 'Executive Dashboard', icon: 'dashboard' },
       { id: 'pass-inventory', label: 'Pass Directory', icon: 'confirmation_number', badge: '24.8k' },
-      { id: 'bookings', label: 'Recent Bookings', icon: 'receipt_long' },
-      { id: 'customers', label: 'Attendees & Guests', icon: 'group' },
-      { id: 'sellers', label: 'Seller Network', icon: 'storefront', badge: '6 Hubs' },
-    ],
-  },
-  {
-    title: 'Live Operations',
-    items: [
+      { id: 'allocation-optimizer', label: 'Quota & Yield (DP)', icon: 'tune' },
+      { id: 'group-booking', label: 'Group Booking Optimizer', icon: 'diversity_3', badge: '4 Solvers' },
+      { id: 'event-conflicts', label: 'Stage Conflicts (Interval)', icon: 'event_available' },
       { id: 'qr-verification', label: 'Gate Turnstile Scanner', icon: 'qr_code_scanner', badge: 'Live' },
-      { id: 'allocation-optimizer', label: 'Quota & Yield Optimizer', icon: 'tune' },
-      { id: 'group-booking', label: 'Group & Troupe Bookings', icon: 'diversity_3' },
-      { id: 'event-conflicts', label: 'Stage & Arena Schedules', icon: 'event_available' },
       { id: 'performance', label: 'VIP Priority Queue', icon: 'bolt' },
     ],
   },
   {
-    title: 'Reports & Settings',
+    title: 'DAA Algorithm Labs',
     items: [
+      { id: 'benchmark-lab', label: 'Algorithm Benchmark Lab', icon: 'analytics', badge: 'Real' },
+      { id: 'complexity-analyzer', label: 'Complexity Analyzer', icon: 'function' },
+      { id: 'divide-conquer-lab', label: 'Divide & Conquer Suite', icon: 'call_split' },
+      { id: 'heap-comparison', label: 'Priority Heap Lab', icon: 'layers' },
+      { id: 'top-k-sales', label: 'Top-K Sales Intelligence', icon: 'leaderboard' },
+      { id: 'dsu-visualizer', label: 'Festival Zone DSU', icon: 'hub' },
+      { id: 'exact-vs-approx', label: 'Exact vs Approx (NP)', icon: 'balance' },
+    ],
+  },
+  {
+    title: 'Directories & Audit',
+    items: [
+      { id: 'sellers', label: 'Seller Network', icon: 'storefront', badge: '6 Hubs' },
+      { id: 'customers', label: 'Attendees & Guests', icon: 'group' },
       { id: 'reports', label: 'Audit Reports & CSV', icon: 'file_download' },
-      { id: 'settings', label: 'System & Security Settings', icon: 'settings' },
+      { id: 'settings', label: 'System & Gate Settings', icon: 'settings' },
     ],
   },
 ];
@@ -92,21 +98,21 @@ export const Sidebar: React.FC<SidebarProps> = ({
                 </span>
               </div>
               <p className="font-body-sm text-body-sm text-on-surface-variant truncate mt-1">
-                Intelligent Navratri Pass Management
+                DAA Pass Management & Lab
               </p>
             </div>
           </div>
 
           {/* Navigation Links */}
-          <nav className="flex-1 overflow-y-auto px-space-md py-space-sm space-y-space-md">
+          <nav className="flex-1 overflow-y-auto px-space-sm py-space-md space-y-space-md">
             {navSections.map((section) => (
-              <div key={section.title} className="space-y-space-xs">
-                <span className="font-label-sm text-label-sm uppercase tracking-wider text-outline px-space-sm block">
+              <div key={section.title} className="space-y-1">
+                <div className="px-space-md py-1 font-label-sm text-label-sm font-semibold tracking-wider text-outline uppercase font-mono">
                   {section.title}
-                </span>
+                </div>
                 <div className="space-y-0.5">
                   {section.items.map((item) => {
-                    const isActive = currentScreen === item.id;
+                    const active = currentScreen === item.id;
                     return (
                       <button
                         key={item.id}
@@ -115,21 +121,27 @@ export const Sidebar: React.FC<SidebarProps> = ({
                           onNavigate(item.id);
                           onCloseMobile();
                         }}
-                        className={`w-full flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-left transition-colors font-body-md text-body-md ${
-                          isActive
-                            ? 'bg-primary-container text-on-primary-container font-semibold shadow-sm'
-                            : 'text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface'
+                        className={`w-full flex items-center justify-between px-space-md py-2.5 rounded-lg text-left font-label-lg text-label-lg transition-colors group ${
+                          active
+                            ? 'bg-surface-container-high text-primary font-semibold shadow-sm'
+                            : 'text-on-surface hover:bg-surface-container-low hover:text-primary'
                         }`}
                       >
-                        <span className="material-symbols-outlined text-lg shrink-0">
-                          {item.icon}
-                        </span>
-                        <span className="truncate flex-1">{item.label}</span>
+                        <div className="flex items-center gap-space-sm min-w-0">
+                          <span
+                            className={`material-symbols-outlined text-xl transition-colors shrink-0 ${
+                              active ? 'text-primary' : 'text-on-surface-variant group-hover:text-primary'
+                            }`}
+                          >
+                            {item.icon}
+                          </span>
+                          <span className="truncate">{item.label}</span>
+                        </div>
                         {item.badge && (
                           <span
-                            className={`font-label-sm text-xs px-1.5 py-0.5 rounded ${
-                              item.badge === 'Live'
-                                ? 'bg-secondary/20 text-secondary font-semibold'
+                            className={`font-label-sm text-label-sm font-mono px-2 py-0.5 rounded-full text-xs shrink-0 ${
+                              active
+                                ? 'bg-primary/10 text-primary font-semibold'
                                 : 'bg-surface-container text-on-surface-variant'
                             }`}
                           >
@@ -145,18 +157,22 @@ export const Sidebar: React.FC<SidebarProps> = ({
           </nav>
         </div>
 
-        {/* Footer / Quick Info */}
-        <div className="p-space-md border-t border-surface-container/40 bg-surface-container-lowest text-xs text-on-surface-variant">
-          <div className="flex items-center justify-between font-mono mb-1">
-            <span className="text-secondary font-semibold flex items-center gap-1">
-              <span className="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse" />
-              All Gates Online
-            </span>
-            <span className="text-outline">Ahmedabad, GJ</span>
+        {/* User / Status Footer */}
+        <div className="p-space-md border-t border-surface-container/60 bg-surface-container-low flex items-center justify-between">
+          <div className="flex items-center gap-space-sm min-w-0">
+            <div className="w-8 h-8 rounded-full bg-primary/20 text-primary flex items-center justify-center font-bold text-xs font-mono shrink-0">
+              DAA
+            </div>
+            <div className="min-w-0">
+              <span className="font-body-md text-body-md font-semibold text-on-surface block truncate">
+                Admin Console
+              </span>
+              <span className="font-body-sm text-body-sm text-secondary block font-mono">
+                B.Tech Sem 5 DAA
+              </span>
+            </div>
           </div>
-          <p className="text-[11px] text-outline truncate">
-            Navratri Festival Operations Suite 2026
-          </p>
+          <span className="w-2 h-2 rounded-full bg-secondary shrink-0" title="Engine Active" />
         </div>
       </aside>
     </>

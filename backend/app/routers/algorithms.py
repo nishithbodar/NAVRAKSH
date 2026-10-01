@@ -1,7 +1,9 @@
 from fastapi import APIRouter
 from app.services.algorithm_service import AlgorithmService
-from app.schemas.algorithm import RbtInsertRequest, KaratsubaRequest, StrassenRequest
+from app.services.analytics_service import AnalyticsService
+from app.schemas.algorithm import RbtInsertRequest, KaratsubaRequest, StrassenRequest, FastExponentiationRequest
 from app.algorithms.large_integer.karatsuba import benchmark_multiplication
+from app.algorithms.large_integer.fast_exponentiation import benchmark_exponentiation
 from app.algorithms.matrix.strassen import strassen_matrix_mult, naive_matrix_mult
 from app.algorithms.dynamic_programming.matrix_chain import solve_matrix_chain
 from app.algorithms.dynamic_programming.lcs import compute_lcs
@@ -35,6 +37,12 @@ def traverse_rbt():
 @router.post("/karatsuba", response_model=dict)
 def run_karatsuba(req: KaratsubaRequest):
     res = benchmark_multiplication(req.number_a, req.number_b)
+    return success_response(data=res)
+
+# Fast Exponentiation by Squaring
+@router.post("/exponentiation", response_model=dict)
+def run_fast_exponentiation(req: FastExponentiationRequest):
+    res = benchmark_exponentiation(req.base, req.exponent, req.modulus)
     return success_response(data=res)
 
 # Strassen Matrix Multiplication
@@ -72,4 +80,22 @@ def run_matrix_chain(dimensions: list[int]):
 @router.post("/lcs", response_model=dict)
 def run_lcs(string_a: str, string_b: str):
     res = compute_lcs(string_a, string_b)
+    return success_response(data=res)
+
+# Search Paradigm Comparison (Linear, Binary, RBT, Hash)
+@router.get("/search/compare", response_model=dict)
+def compare_search_algorithms(target_key: int = 1032, size: int = 5000):
+    res = AnalyticsService.compare_search(target_key=target_key, size=size)
+    return success_response(data=res)
+
+# Heaps Priority Queue Comparison (Binary, Binomial, Fibonacci)
+@router.get("/heaps/compare", response_model=dict)
+def compare_heap_structures(operations_count: int = 500):
+    res = AnalyticsService.compare_heaps(operations_count=operations_count)
+    return success_response(data=res)
+
+# Disjoint Set Union (DSU) Festival Zones
+@router.get("/dsu/zones", response_model=dict)
+def get_dsu_festival_zones():
+    res = AnalyticsService.dsu_festival_zones()
     return success_response(data=res)

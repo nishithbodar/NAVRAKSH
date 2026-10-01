@@ -14,6 +14,15 @@ import { CustomersDirectory } from './components/CustomersDirectory.tsx';
 import { Reports } from './components/Reports.tsx';
 import { Settings } from './components/Settings.tsx';
 
+// DAA Labs
+import { BenchmarkLab } from './components/BenchmarkLab.tsx';
+import { ComplexityAnalyzer } from './components/ComplexityAnalyzer.tsx';
+import { DivideConquerLab } from './components/DivideConquerLab.tsx';
+import { HeapComparisonLab } from './components/HeapComparisonLab.tsx';
+import { TopKSalesIntelligence } from './components/TopKSalesIntelligence.tsx';
+import { DsuVisualizer } from './components/DsuVisualizer.tsx';
+import { ExactVsApproxLab } from './components/ExactVsApproxLab.tsx';
+
 export default function App() {
   const [currentScreen, setCurrentScreen] = useState<ScreenId>('dashboard');
   const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
@@ -26,6 +35,7 @@ export default function App() {
 
       case 'pass-inventory':
       case 'bookings':
+      case 'dsa-visualizer':
         return <PassInventory />;
 
       case 'sellers':
@@ -55,6 +65,27 @@ export default function App() {
 
       case 'performance':
         return <PriorityQueue />;
+
+      case 'benchmark-lab':
+        return <BenchmarkLab />;
+
+      case 'complexity-analyzer':
+        return <ComplexityAnalyzer />;
+
+      case 'divide-conquer-lab':
+        return <DivideConquerLab />;
+
+      case 'heap-comparison':
+        return <HeapComparisonLab />;
+
+      case 'top-k-sales':
+        return <TopKSalesIntelligence />;
+
+      case 'dsu-visualizer':
+        return <DsuVisualizer />;
+
+      case 'exact-vs-approx':
+        return <ExactVsApproxLab />;
 
       case 'reports':
         return <Reports />;

@@ -43,7 +43,7 @@ export const PassInventory: React.FC = () => {
     const matchesSearch =
       p.id.toLowerCase().includes(search.toLowerCase()) ||
       p.holder.toLowerCase().includes(search.toLowerCase()) ||
-      p.hash.toLowerCase().includes(search.toLowerCase()) ||
+      (p.hash || p.hashToken || '').toLowerCase().includes(search.toLowerCase()) ||
       p.phone.includes(search);
     const matchesTier = tierFilter === 'all' || p.tier.toLowerCase().includes(tierFilter.toLowerCase());
     const matchesStatus = statusFilter === 'all' || p.status === statusFilter;

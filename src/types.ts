@@ -10,6 +10,14 @@ export type ScreenId =
   | 'allocation-optimizer'
   | 'group-booking'
   | 'event-conflicts'
+  | 'benchmark-lab'
+  | 'complexity-analyzer'
+  | 'divide-conquer-lab'
+  | 'heap-comparison'
+  | 'top-k-sales'
+  | 'dsu-visualizer'
+  | 'exact-vs-approx'
+  | 'dsa-visualizer'
   | 'sales-intelligence'
   | 'performance'
   | 'reports'
@@ -58,7 +66,8 @@ export interface GateScanEvent {
   turnstile: string;
   status: 'GRANTED' | 'DUPLICATE_ALERT' | 'INVALID_HASH';
   tier: string;
-  latencyMs: number;
+  hashToken: string;
+  rejectionReason?: string;
 }
 
 export interface PassRecord {
@@ -68,12 +77,15 @@ export interface PassRecord {
   tier: string;
   nights: string;
   gate: string;
-  hash: string;
-  status: 'ACTIVE' | 'SCANNED' | 'QUARANTINED';
-  seller: string;
-  priceInr: number;
-  rfidToken: string;
+  hashToken?: string;
+  hash?: string;
+  rfidUid?: string;
+  rfidToken?: string;
+  price?: number;
+  priceInr?: number;
+  seller?: string;
   scannedAt?: string;
+  status: 'Active' | 'Scanned' | 'Flagged' | 'VIP' | 'ACTIVE' | 'SCANNED' | 'QUARANTINED' | string;
 }
 
 export interface VenueSlot {
@@ -84,20 +96,13 @@ export interface VenueSlot {
   date: string;
   startTime: string;
   endTime: string;
-  performer: string;
-  soundLevelDb: number;
-  status: 'CONFIRMED' | 'FLAGGED' | 'COMPLETED';
+  soundCurfewCompliant?: boolean;
+  decibelRating?: number;
+  artistOrTroupe?: string;
+  performer?: string;
+  status?: string;
   notes?: string;
-}
-
-export interface PriorityRequest {
-  id: string;
-  category: 'VIP Pass' | 'Seller Quota' | 'Emergency Access' | 'Troupe Bulk';
-  requestor: string;
-  details: string;
-  priorityScore: number; // 1 to 5 (5 highest)
-  timestamp: string;
-  status: 'PENDING' | 'APPROVED' | 'DISPATCHED';
+  soundLevelDb?: number;
 }
 
 export interface TroupeBooking {
@@ -105,12 +110,29 @@ export interface TroupeBooking {
   troupeName: string;
   leaderName: string;
   leaderPhone: string;
-  category: 'Garba Troupe' | 'Raas Dandiya' | 'Corporate Delegation' | 'Family VIP';
-  memberCount: number;
-  selectedTier: string;
-  totalCostInr: number;
-  assignedGate: string;
-  nights: string;
-  status: 'CONFIRMED' | 'PENDING' | 'CHECKED_IN';
-  members: string[];
+  groupSize?: number;
+  memberCount?: number;
+  budgetAllocated?: number;
+  totalCostInr?: number;
+  allocatedTier?: string;
+  selectedTier?: string;
+  nightSchedule?: string;
+  nights?: string;
+  assignedGate?: string;
+  dsuClusterId?: string;
+  zonePreference?: string;
+  category?: string;
+  members?: string[];
+  status: 'Confirmed' | 'Review' | 'Waitlist' | 'CONFIRMED' | 'CHECKED_IN' | string;
+}
+
+export interface PriorityRequest {
+  id: string;
+  category: string;
+  requestor: string;
+  details: string;
+  priorityScore: number;
+  submittedAt?: string;
+  timestamp?: string;
+  status: 'QUEUED' | 'DISPATCHED' | 'HELD' | 'PENDING' | string;
 }
