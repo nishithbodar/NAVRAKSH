@@ -1,1 +1,6 @@
-{}
+{
+  "backend/tests/test_api.py::TestClient": true,
+  "backend/tests/test_auth.py::TestClient": true,
+  "backend/tests/test_bookings.py::TestClient": true,
+  "backend/tests/test_inventory.py::TestClient": true
+}
