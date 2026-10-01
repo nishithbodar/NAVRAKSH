@@ -2,56 +2,68 @@ import { useState } from 'react';
 import { ScreenId } from './types.ts';
 import { Sidebar } from './components/Sidebar.tsx';
 import { Header } from './components/Header.tsx';
-import { DsaVisualizer } from './components/DsaVisualizer.tsx';
-import { AllocationOptimizer } from './components/AllocationOptimizer.tsx';
-import { QrVerification } from './components/QrVerification.tsx';
 import { Dashboard } from './components/Dashboard.tsx';
 import { PassInventory } from './components/PassInventory.tsx';
+import { QrVerification } from './components/QrVerification.tsx';
+import { AllocationOptimizer } from './components/AllocationOptimizer.tsx';
 import { EventConflicts } from './components/EventConflicts.tsx';
+import { GroupBookings } from './components/GroupBookings.tsx';
+import { PriorityQueue } from './components/PriorityQueue.tsx';
+import { SellersDirectory } from './components/SellersDirectory.tsx';
+import { CustomersDirectory } from './components/CustomersDirectory.tsx';
 import { Reports } from './components/Reports.tsx';
+import { Settings } from './components/Settings.tsx';
 
 export default function App() {
-  const [currentScreen, setCurrentScreen] = useState<ScreenId>('dsa-visualizer');
+  const [currentScreen, setCurrentScreen] = useState<ScreenId>('dashboard');
   const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
   const [searchQuery, setSearchQuery] = useState<string>('');
 
   const renderScreen = () => {
     switch (currentScreen) {
-      case 'dsa-visualizer':
-      case 'algorithm-engine':
-      case 'complexity-analyzer':
-      case 'benchmark-lab':
-        return <DsaVisualizer />;
-
-      case 'allocation-optimizer':
-      case 'sales-intelligence':
-      case 'performance':
-        return <AllocationOptimizer />;
-
-      case 'reports':
-        return <Reports />;
-
-      case 'qr-verification':
-      case 'fraud-detection':
-        return <QrVerification />;
-
       case 'dashboard':
-      case 'sellers':
-      case 'customers':
-      case 'events':
         return <Dashboard onNavigate={(screen) => setCurrentScreen(screen)} />;
 
       case 'pass-inventory':
       case 'bookings':
         return <PassInventory />;
 
-      case 'event-conflicts':
+      case 'sellers':
+        return (
+          <SellersDirectory
+            onNavigateToOptimizer={() => setCurrentScreen('allocation-optimizer')}
+          />
+        );
+
+      case 'customers':
+        return <CustomersDirectory />;
+
+      case 'qr-verification':
+      case 'fraud-detection':
+        return <QrVerification />;
+
+      case 'allocation-optimizer':
+      case 'sales-intelligence':
+        return <AllocationOptimizer />;
+
       case 'group-booking':
-      case 'settings':
+        return <GroupBookings />;
+
+      case 'event-conflicts':
+      case 'events':
         return <EventConflicts />;
 
+      case 'performance':
+        return <PriorityQueue />;
+
+      case 'reports':
+        return <Reports />;
+
+      case 'settings':
+        return <Settings />;
+
       default:
-        return <DsaVisualizer />;
+        return <Dashboard onNavigate={(screen) => setCurrentScreen(screen)} />;
     }
   };
 

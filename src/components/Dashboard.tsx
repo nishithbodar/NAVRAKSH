@@ -24,19 +24,19 @@ export const Dashboard: React.FC<DashboardProps> = ({ onNavigate }) => {
             Navratri Mahotsav 2026 Overview
           </h1>
           <p className="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
-            Real-time algorithmic monitoring, pass inventory optimization, and instantaneous turnstile gate security for Ahmedabad&apos;s premier 9-night celebration.
+            Real-time festival monitoring, pass inventory optimization, and instantaneous turnstile gate security for Ahmedabad&apos;s premier 9-night celebration.
           </p>
         </div>
 
         {/* Quick Launch Buttons */}
         <div className="flex flex-wrap items-center gap-space-xs">
           <button
-            onClick={() => onNavigate('dsa-visualizer')}
+            onClick={() => onNavigate('pass-inventory')}
             className="px-3.5 py-2.5 rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-md text-label-md flex items-center gap-2 border border-surface-container-highest/60 transition-colors"
             type="button"
           >
-            <span className="material-symbols-outlined text-primary text-base">account_tree</span>
-            <span>DSA Visualizer</span>
+            <span className="material-symbols-outlined text-primary text-base">confirmation_number</span>
+            <span>Pass Directory</span>
           </button>
           <button
             onClick={() => onNavigate('allocation-optimizer')}
@@ -44,7 +44,7 @@ export const Dashboard: React.FC<DashboardProps> = ({ onNavigate }) => {
             type="button"
           >
             <span className="material-symbols-outlined text-secondary text-base">tune</span>
-            <span>Allocation Optimizer</span>
+            <span>Quota Optimizer</span>
           </button>
           <button
             onClick={() => onNavigate('qr-verification')}
@@ -69,7 +69,7 @@ export const Dashboard: React.FC<DashboardProps> = ({ onNavigate }) => {
             ₹4.82 Cr
           </div>
           <div className="flex items-center justify-between text-xs text-on-surface-variant font-mono">
-            <span className="text-secondary font-semibold">+10.8% with Knapsack DP</span>
+            <span className="text-secondary font-semibold">+10.8% with Smart Allocation</span>
             <span>Target: ₹4.50 Cr</span>
           </div>
         </div>
@@ -99,8 +99,8 @@ export const Dashboard: React.FC<DashboardProps> = ({ onNavigate }) => {
             412/min
           </div>
           <div className="flex items-center justify-between text-xs text-on-surface-variant font-mono">
-            <span>Avg Latency: 0.04ms</span>
-            <span className="text-secondary">O(1) Hash Map</span>
+            <span>Avg Latency: &lt; 0.1ms</span>
+            <span className="text-secondary font-semibold">Sub-Millisecond Verification</span>
           </div>
         </div>
 
@@ -111,7 +111,7 @@ export const Dashboard: React.FC<DashboardProps> = ({ onNavigate }) => {
             <span className="material-symbols-outlined text-base text-error">security</span>
           </div>
           <div className="font-headline-xl text-headline-xl text-on-surface font-bold font-mono">
-            47 Attacks
+            47 Intercepted
           </div>
           <div className="flex items-center justify-between text-xs text-on-surface-variant font-mono">
             <span className="text-secondary font-semibold">100% Intercepted</span>
@@ -197,12 +197,12 @@ export const Dashboard: React.FC<DashboardProps> = ({ onNavigate }) => {
 
           <div className="space-y-2 max-h-72 overflow-y-auto pr-1">
             {[
-              { id: 'NAV-84291', holder: 'Rahul Patel', gate: 'Gate 02 • B', time: '20:14:08 IST', tier: 'Gold Couple', status: 'GRANTED', latency: '0.042 ms' },
-              { id: 'NAV-10328', holder: 'Aarav Joshi', gate: 'Gate 01 • VIP', time: '20:14:02 IST', tier: 'Royal Lounge', status: 'GRANTED', latency: '0.038 ms' },
-              { id: 'NAV-84291', holder: 'REPLAY ATTEMPT', gate: 'Gate 02 • A', time: '20:13:59 IST', tier: 'Gold Couple', status: 'DUPLICATE_ALERT', latency: '0.041 ms' },
-              { id: 'NAV-99120', holder: 'Priya Shah', gate: 'Gate 01 • VIP', time: '20:13:45 IST', tier: 'Saibo Diamond', status: 'GRANTED', latency: '0.039 ms' },
-              { id: 'NAV-44219', holder: 'Nirav Trivedi', gate: 'Gate 03 • Concourse', time: '20:13:30 IST', tier: 'Heritage Deluxe', status: 'GRANTED', latency: '0.045 ms' },
-              { id: 'NAV-65102', holder: 'Kavita Dave', gate: 'Gate 02 • B', time: '20:13:12 IST', tier: 'Garba Arena', status: 'GRANTED', latency: '0.040 ms' },
+              { id: 'NAV-84291', holder: 'Rahul Patel', gate: 'Gate 02 • B', time: '20:14:08 IST', tier: 'Gold Couple', status: 'GRANTED', latency: '0.04 ms' },
+              { id: 'NAV-10328', holder: 'Aarav Joshi', gate: 'Gate 01 • VIP', time: '20:14:02 IST', tier: 'Royal Lounge', status: 'GRANTED', latency: '0.04 ms' },
+              { id: 'NAV-84291', holder: 'REPLAY ATTEMPT', gate: 'Gate 02 • A', time: '20:13:59 IST', tier: 'Gold Couple', status: 'DUPLICATE_ALERT', latency: '0.04 ms' },
+              { id: 'NAV-99120', holder: 'Priya Shah', gate: 'Gate 01 • VIP', time: '20:13:45 IST', tier: 'Saibo Diamond', status: 'GRANTED', latency: '0.04 ms' },
+              { id: 'NAV-44219', holder: 'Nirav Trivedi', gate: 'Gate 03 • Concourse', time: '20:13:30 IST', tier: 'Heritage Deluxe', status: 'GRANTED', latency: '0.04 ms' },
+              { id: 'NAV-65102', holder: 'Kavita Dave', gate: 'Gate 02 • B', time: '20:13:12 IST', tier: 'Garba Arena', status: 'GRANTED', latency: '0.04 ms' },
             ].map((scan, i) => (
               <div
                 key={i}
@@ -282,8 +282,8 @@ export const Dashboard: React.FC<DashboardProps> = ({ onNavigate }) => {
           </div>
 
           <div className="p-2.5 rounded-lg bg-surface-container-high/60 border border-surface-container-highest flex items-center justify-between text-xs font-mono">
-            <span className="text-outline">Algorithm State:</span>
-            <span className="text-primary font-bold">100% Bellman Optimal</span>
+            <span className="text-outline">Optimization Status:</span>
+            <span className="text-secondary font-bold">Yield Maximized (Global Optimal)</span>
           </div>
         </div>
       </div>

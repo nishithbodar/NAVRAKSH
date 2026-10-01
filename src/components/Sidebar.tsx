@@ -22,47 +22,30 @@ interface NavSection {
 
 const navSections: NavSection[] = [
   {
-    title: 'Main',
+    title: 'Overview',
     items: [
-      { id: 'dashboard', label: 'Dashboard', icon: 'dashboard' },
-      { id: 'bookings', label: 'Bookings', icon: 'confirmation_number' },
-      { id: 'pass-inventory', label: 'Pass Inventory', icon: 'inventory_2' },
-      { id: 'events', label: 'Events', icon: 'festival' },
-      { id: 'sellers', label: 'Sellers', icon: 'storefront' },
-      { id: 'customers', label: 'Customers', icon: 'group' },
+      { id: 'dashboard', label: 'Executive Dashboard', icon: 'dashboard' },
+      { id: 'pass-inventory', label: 'Pass Directory', icon: 'confirmation_number', badge: '24.8k' },
+      { id: 'bookings', label: 'Recent Bookings', icon: 'receipt_long' },
+      { id: 'customers', label: 'Attendees & Guests', icon: 'group' },
+      { id: 'sellers', label: 'Seller Network', icon: 'storefront', badge: '6 Hubs' },
     ],
   },
   {
-    title: 'Operations',
+    title: 'Live Operations',
     items: [
-      { id: 'qr-verification', label: 'QR Verification', icon: 'qr_code_scanner' },
-      { id: 'fraud-detection', label: 'Fraud Detection', icon: 'security' },
-      { id: 'allocation-optimizer', label: 'Allocation Optimizer', icon: 'tune' },
-      { id: 'group-booking', label: 'Group Booking', icon: 'diversity_3' },
-      { id: 'event-conflicts', label: 'Event Conflicts', icon: 'crisis_alert' },
+      { id: 'qr-verification', label: 'Gate Turnstile Scanner', icon: 'qr_code_scanner', badge: 'Live' },
+      { id: 'allocation-optimizer', label: 'Quota & Yield Optimizer', icon: 'tune' },
+      { id: 'group-booking', label: 'Group & Troupe Bookings', icon: 'diversity_3' },
+      { id: 'event-conflicts', label: 'Stage & Arena Schedules', icon: 'event_available' },
+      { id: 'performance', label: 'VIP Priority Queue', icon: 'bolt' },
     ],
   },
   {
-    title: 'Algorithm Lab',
+    title: 'Reports & Settings',
     items: [
-      { id: 'algorithm-engine', label: 'Algorithm Engine', icon: 'memory' },
-      { id: 'dsa-visualizer', label: 'DSA Visualizer', icon: 'account_tree' },
-      { id: 'benchmark-lab', label: 'Benchmark Lab', icon: 'speed' },
-      { id: 'complexity-analyzer', label: 'Complexity Analyzer', icon: 'query_stats' },
-    ],
-  },
-  {
-    title: 'Analytics',
-    items: [
-      { id: 'sales-intelligence', label: 'Sales Intelligence', icon: 'insights' },
-      { id: 'performance', label: 'Performance', icon: 'bolt' },
-      { id: 'reports', label: 'Reports', icon: 'receipt_long' },
-    ],
-  },
-  {
-    title: 'System',
-    items: [
-      { id: 'settings', label: 'Settings', icon: 'settings' },
+      { id: 'reports', label: 'Audit Reports & CSV', icon: 'file_download' },
+      { id: 'settings', label: 'System & Security Settings', icon: 'settings' },
     ],
   },
 ];
@@ -96,7 +79,6 @@ export const Sidebar: React.FC<SidebarProps> = ({
               className="h-9 w-auto object-contain shrink-0"
               src="https://lh3.googleusercontent.com/aida/AEtjO1Utxwedp-4O0PnYVZBmU67a29bpsuCswYwqoWo6AOECC1uMPML9-ec2ljMttJIUsodj6VeErDogkKkqVlCPI-sVca0XJABzMT1UsESeVFw3rw19OGgB8NfFIF2kJuq-WTQCWT92ImH6p9mieWYyYA-Bd8K_Q43DAhTuthEOgLepOAPQlSqZNU2mqaxksbPK-6tsyIxrWbXwXlYdjgX1VP2EwiO0SqKaW6EakPjqANQrvvlXFk3uEKlK5sel"
               onError={(e) => {
-                // Fallback elegant SVG logo if external link blocked
                 (e.target as HTMLElement).style.display = 'none';
               }}
             />
@@ -110,7 +92,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                 </span>
               </div>
               <p className="font-body-sm text-body-sm text-on-surface-variant truncate mt-1">
-                Intelligent Navratri Pass Management &amp; Sales Optimization
+                Intelligent Navratri Pass Management
               </p>
             </div>
           </div>
@@ -144,7 +126,13 @@ export const Sidebar: React.FC<SidebarProps> = ({
                         </span>
                         <span className="truncate flex-1">{item.label}</span>
                         {item.badge && (
-                          <span className="font-label-sm text-xs px-1.5 py-0.5 rounded bg-surface-container text-secondary">
+                          <span
+                            className={`font-label-sm text-xs px-1.5 py-0.5 rounded ${
+                              item.badge === 'Live'
+                                ? 'bg-secondary/20 text-secondary font-semibold'
+                                : 'bg-surface-container text-on-surface-variant'
+                            }`}
+                          >
                             {item.badge}
                           </span>
                         )}
@@ -157,36 +145,18 @@ export const Sidebar: React.FC<SidebarProps> = ({
           </nav>
         </div>
 
-        {/* Profile Card & Engine Status */}
-        <div className="p-space-md bg-surface-container-low border-t border-surface-container/60">
-          <div className="flex items-center gap-space-sm mb-space-xs">
-            <img
-              alt="Darshan Dave Profile"
-              className="w-8 h-8 rounded-full object-cover ring-1 ring-outline/40 shrink-0"
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuAmluF1qUMuq3UB7U8MIydsOkN02dLQMmiCgl75uQs0uRJhnnYiO1Z4k_DjfT-DmSOqP8qyxQqQ2jA4gGtJ4vkYiTtkKlUpA_p7NA79ylRJOLPjg4PpHvGJU7y7ZyDozESwUEP_ZpOh5eGSpzt7X387H6Hn-cxs2TsV9Jb7YLvP0LXfo5m7p595I8xC6N0cGCt5C0ox7TybByjuQovjzVv2on76Vdrve9lz6GG8q7JKInATH-9bn_kKNw"
-              onError={(e) => {
-                // Inline avatar fallback
-                (e.target as HTMLElement).style.display = 'none';
-              }}
-            />
-            <div className="flex flex-col min-w-0 flex-1">
-              <span className="font-body-sm text-body-sm font-semibold text-on-surface truncate">
-                Darshan Dave
-              </span>
-              <span className="font-label-sm text-label-sm text-on-surface-variant truncate">
-                360° Operations Lead
-              </span>
-            </div>
-          </div>
-          <div className="flex items-center gap-space-xs px-space-xs py-1 rounded bg-surface-container">
-            <span className="relative flex h-2 w-2 shrink-0">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-secondary"></span>
+        {/* Footer / Quick Info */}
+        <div className="p-space-md border-t border-surface-container/40 bg-surface-container-lowest text-xs text-on-surface-variant">
+          <div className="flex items-center justify-between font-mono mb-1">
+            <span className="text-secondary font-semibold flex items-center gap-1">
+              <span className="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse" />
+              All Gates Online
             </span>
-            <span className="font-label-sm text-label-sm text-secondary truncate font-mono">
-              Algorithm Engine: ACTIVE
-            </span>
+            <span className="text-outline">Ahmedabad, GJ</span>
           </div>
+          <p className="text-[11px] text-outline truncate">
+            Navratri Festival Operations Suite 2026
+          </p>
         </div>
       </aside>
     </>

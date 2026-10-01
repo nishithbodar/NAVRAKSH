@@ -104,7 +104,7 @@ export const AllocationOptimizer: React.FC = () => {
     setIsSolving(true);
     setTimeout(() => {
       setIsSolving(false);
-      // Recalculate slightly based on parameters
+      // Recalculate based on parameters
       const scaleFactor = totalPasses / 10000;
       const algoFactor = algorithm === 'greedy' ? 0.954 : 1.0;
       const newRev = Number((70.0 * scaleFactor * algoFactor).toFixed(2));
@@ -146,28 +146,28 @@ export const AllocationOptimizer: React.FC = () => {
 
   return (
     <div className="p-space-md lg:p-margin space-y-space-xl relative overflow-hidden">
-      {/* Ambient Radial Atmosphere */}
+      {/* Background Ambience */}
       <div className="absolute -top-32 -left-32 w-96 h-96 bg-primary-container/10 rounded-full blur-3xl pointer-events-none -z-10" />
       <div className="absolute top-1/3 -right-32 w-[32rem] h-[32rem] bg-secondary-container/10 rounded-full blur-3xl pointer-events-none -z-10" />
 
-      {/* Hero / Title & Context Section */}
+      {/* Hero / Title Section */}
       <section className="flex flex-col gap-space-md">
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-space-md">
           <div className="space-y-space-xs max-w-3xl">
             <div className="flex items-center gap-space-xs">
               <span className="px-2 py-0.5 rounded bg-primary-container/20 text-primary font-label-sm text-label-sm uppercase tracking-wider font-mono">
-                DAA Engine // Module 04
+                Revenue &amp; Quota Balancing
               </span>
               <span className="text-outline text-label-sm font-label-sm">|</span>
               <span className="text-secondary font-label-sm text-label-sm flex items-center gap-1 font-mono">
-                <span className="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse" /> Bellman-Ford Memoizer Active
+                <span className="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse" /> Continuous Optimization Engine
               </span>
             </div>
             <h1 className="font-headline-xl text-headline-xl text-on-surface tracking-tight">
-              Inventory Allocation Optimizer
+              Seller Quota &amp; Yield Optimizer
             </h1>
             <p className="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
-              Distribute limited pass inventory among multi-tier sellers and distribution partners to maximize sell-through utilization and gross revenue.
+              Distribute limited pass inventory among multi-tier regional partners to maximize sell-through utilization, prevent ticket deadstock, and maximize gross revenue.
             </p>
           </div>
 
@@ -175,52 +175,52 @@ export const AllocationOptimizer: React.FC = () => {
           <div className="flex items-center gap-space-sm bg-surface-container-high px-space-md py-space-sm rounded-xl shadow-sm self-start lg:self-auto border border-surface-container-highest/60">
             <span className="material-symbols-outlined text-primary text-2xl">insights</span>
             <div className="flex flex-col">
-              <span className="font-label-sm text-label-sm text-outline uppercase tracking-wider">Algorithmic State</span>
+              <span className="font-label-sm text-label-sm text-outline uppercase tracking-wider">Solution State</span>
               <span className="font-label-md text-label-md text-on-surface font-semibold font-mono">
-                Pareto-Optimal Frontier [Active]
+                Global Optimal Frontier [Active]
               </span>
             </div>
           </div>
         </div>
 
-        {/* Problem Statement Banner */}
+        {/* Objective & Business Rules Banner */}
         <div className="relative bg-surface-container-low rounded-xl p-space-md shadow-md overflow-hidden border border-surface-container/60">
           <div className="absolute inset-y-0 left-0 w-1.5 bg-gradient-to-b from-primary-container via-secondary to-primary-container" />
           <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-space-md pl-space-xs">
             <div className="space-y-1">
               <div className="flex items-center gap-2">
-                <span className="material-symbols-outlined text-primary text-base">functions</span>
+                <span className="material-symbols-outlined text-primary text-base">verified</span>
                 <span className="font-label-md text-label-md uppercase tracking-wider text-primary font-semibold font-mono">
-                  DAA Optimization Problem: Multi-Seller Bounded Knapsack with Fairness &amp; Tier Constraints
+                  Automated Quota Balancing: Multi-Partner Demand Fulfillment with Capacity Safety
                 </span>
               </div>
               <p className="font-body-sm text-body-sm text-on-surface-variant">
-                Mathematical bounds enforce strict capacity safety, preventing unauthorized over-issuance while preserving regional equilibrium.
+                Guaranteed inventory safety constraints enforce strict capacity limits, preventing unauthorized over-issuance while preserving regional distribution equity.
               </p>
             </div>
             <div className="bg-surface-container-lowest px-space-md py-space-xs rounded-lg shadow-sm border border-surface-container/50">
               <span className="font-label-sm text-label-sm text-outline block uppercase tracking-wider mb-0.5 font-mono">
-                Objective Function
+                Optimization Objective
               </span>
               <code className="font-label-md text-label-md text-secondary tracking-tight font-mono">
-                Maximize Σ(R_i · x_i) &nbsp;s.t.&nbsp; Σx_i ≤ Total Passes, Min_Quota_i ≤ x_i ≤ Demand_i
+                Maximize Gross Yield subject to Tier Quotas &amp; Regional Demand Bounds
               </code>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Top Bento Section: Simulation Controls & Revenue Summary */}
-      <div className="grid grid-cols-1 xl:grid-cols-12 gap-gutter">
+      {/* Top Section: Simulation Controls & Revenue Summary */}
+      <div className="grid grid-cols-1 xl:grid-cols-12 gap-space-lg">
         {/* Interactive Simulation Control Deck (8 Cols) */}
         <div className="xl:col-span-8 bg-surface-container-low rounded-xl p-space-lg shadow-md flex flex-col justify-between gap-space-lg relative border border-surface-container/60">
           <div className="flex items-center justify-between pb-space-xs">
             <div className="flex items-center gap-space-xs">
               <span className="material-symbols-outlined text-secondary text-xl">tune</span>
-              <h2 className="font-headline-sm text-headline-sm text-on-surface">Interactive Simulation Control Deck</h2>
+              <h2 className="font-headline-sm text-headline-sm text-on-surface">Interactive Quota Control Deck</h2>
             </div>
             <span className="font-label-sm text-label-sm text-outline uppercase px-2 py-0.5 bg-surface-container-highest rounded font-mono">
-              Solver Config
+              Configuration
             </span>
           </div>
 
@@ -255,9 +255,9 @@ export const AllocationOptimizer: React.FC = () => {
                 onChange={(e) => setTotalPasses(Number(e.target.value))}
               />
               <div className="flex justify-between text-outline font-label-sm text-label-sm font-mono">
-                <span>1k Floor</span>
-                <span className="text-secondary">Capacity Pool: {totalPasses.toLocaleString()} Passes</span>
-                <span>25k Max</span>
+                <span>1,000 Floor</span>
+                <span className="text-secondary font-semibold">Pass Pool: {totalPasses.toLocaleString()} Passes</span>
+                <span>25,000 Cap</span>
               </div>
             </div>
 
@@ -265,21 +265,21 @@ export const AllocationOptimizer: React.FC = () => {
             <div className="bg-surface-container p-space-md rounded-xl space-y-space-xs flex flex-col justify-between border border-surface-container-highest/40">
               <div className="flex justify-between items-center">
                 <span className="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant">
-                  Authorized Partners
+                  Authorized Regional Hubs
                 </span>
                 <span className="font-label-sm text-label-sm text-secondary bg-surface-container-highest px-2 py-0.5 rounded font-mono">
-                  6 Nodes Enrolled
+                  6 Hubs Active
                 </span>
               </div>
               <div className="flex items-center gap-1.5 flex-wrap">
-                {['Seller A', 'Seller B', 'Seller C', 'Seller D', 'Seller E', 'Seller F'].map((name) => (
-                  <span key={name} className="px-2 py-1 rounded bg-surface-container-high text-on-surface font-label-sm text-label-sm font-mono">
+                {['Karnavati Hub', 'Sarkhej Club', 'Navrangpura Desk', 'Maninagar Point', 'Bopal Online', 'Vastrapur Booth'].map((name) => (
+                  <span key={name} className="px-2 py-1 rounded bg-surface-container-high text-on-surface font-label-sm text-xs font-mono">
                     {name}
                   </span>
                 ))}
               </div>
               <p className="font-body-sm text-body-sm text-outline">
-                All seller demand vectors loaded from ERP real-time sync.
+                Live verified demand feeds synced from registered partners.
               </p>
             </div>
 
@@ -288,7 +288,7 @@ export const AllocationOptimizer: React.FC = () => {
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-space-md">
                 <div className="space-y-1">
                   <div className="flex justify-between items-center">
-                    <span className="font-label-sm text-label-sm text-on-surface-variant">Revenue Weight (α)</span>
+                    <span className="font-label-sm text-label-sm text-on-surface-variant">Revenue Maximization</span>
                     <span className="font-label-sm text-label-sm text-primary font-mono">{alpha}%</span>
                   </div>
                   <input
@@ -302,7 +302,7 @@ export const AllocationOptimizer: React.FC = () => {
                 </div>
                 <div className="space-y-1">
                   <div className="flex justify-between items-center">
-                    <span className="font-label-sm text-label-sm text-on-surface-variant">Demand Fill (β)</span>
+                    <span className="font-label-sm text-label-sm text-on-surface-variant">Demand Fill Factor</span>
                     <span className="font-label-sm text-label-sm text-secondary font-mono">{beta}%</span>
                   </div>
                   <input
@@ -316,7 +316,7 @@ export const AllocationOptimizer: React.FC = () => {
                 </div>
                 <div className="space-y-1">
                   <div className="flex justify-between items-center">
-                    <span className="font-label-sm text-label-sm text-on-surface-variant">Gini Floor (γ)</span>
+                    <span className="font-label-sm text-label-sm text-on-surface-variant">Regional Equity Floor</span>
                     <span className="font-label-sm text-label-sm text-tertiary font-mono">{gamma.toFixed(2)}</span>
                   </div>
                   <input
@@ -333,13 +333,13 @@ export const AllocationOptimizer: React.FC = () => {
             </div>
           </div>
 
-          {/* Algorithm Engine Selector */}
+          {/* Allocation Strategy Selector */}
           <div className="space-y-space-xs">
             <span className="font-label-sm text-label-sm uppercase tracking-wider text-outline block">
-              Select DAA Solver Strategy
+              Select Allocation Strategy
             </span>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-space-sm">
-              {/* Option 1: Greedy */}
+              {/* Option 1: Fast Heuristic */}
               <label
                 onClick={() => setAlgorithm('greedy')}
                 className={`cursor-pointer p-space-md rounded-xl transition-all flex flex-col justify-between gap-space-xs border ${
@@ -358,19 +358,19 @@ export const AllocationOptimizer: React.FC = () => {
                       readOnly
                     />
                     <span className="font-headline-sm text-headline-sm text-on-surface text-base">
-                      Greedy Heuristic
+                      Rapid Priority
                     </span>
                   </div>
                   <span className="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-surface-container-highest text-outline font-mono">
-                    O(n log n)
+                    Instant
                   </span>
                 </div>
                 <p className="font-body-sm text-body-sm text-on-surface-variant">
-                  Fast priority heuristic, sub-optimal under strict fairness constraints.
+                  High-speed priority heuristic for immediate turnaround under standard demand.
                 </p>
               </label>
 
-              {/* Option 2: Dynamic Programming */}
+              {/* Option 2: Dynamic Programming (Recommended) */}
               <label
                 onClick={() => setAlgorithm('dp')}
                 className={`cursor-pointer p-space-md rounded-xl transition-all flex flex-col justify-between gap-space-xs relative overflow-hidden border ${
@@ -390,19 +390,19 @@ export const AllocationOptimizer: React.FC = () => {
                       readOnly
                     />
                     <span className="font-headline-sm text-headline-sm text-primary text-base font-bold">
-                      Dynamic Programming
+                      Yield Maximizer
                     </span>
                   </div>
                   <span className="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-primary-container/20 text-primary font-bold font-mono">
-                    O(n · W)
+                    Recommended
                   </span>
                 </div>
                 <p className="font-body-sm text-body-sm text-on-surface">
-                  Globally optimal, pseudo-polynomial memoized 1D allocation matrix.
+                  Globally optimal distribution maximizing gross festival yield across all channels.
                 </p>
               </label>
 
-              {/* Option 3: Branch & Bound */}
+              {/* Option 3: Strict Boundary Precision */}
               <label
                 onClick={() => setAlgorithm('bb')}
                 className={`cursor-pointer p-space-md rounded-xl transition-all flex flex-col justify-between gap-space-xs border ${
@@ -421,15 +421,15 @@ export const AllocationOptimizer: React.FC = () => {
                       readOnly
                     />
                     <span className="font-headline-sm text-headline-sm text-on-surface text-base">
-                      Branch &amp; Bound
+                      Exact Precision
                     </span>
                   </div>
                   <span className="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-surface-container-highest text-outline font-mono">
-                    O(2ⁿ) pruned
+                    Strict Bound
                   </span>
                 </div>
                 <p className="font-body-sm text-body-sm text-on-surface-variant">
-                  Exact recursive solver with linear relaxation and priority queue bounding.
+                  Exhaustive state exploration enforcing rigorous capacity boundaries with zero margin variance.
                 </p>
               </label>
             </div>
@@ -447,7 +447,7 @@ export const AllocationOptimizer: React.FC = () => {
                 <span className={`material-symbols-outlined text-lg ${isSolving ? 'animate-spin' : 'group-hover:rotate-45'} transition-transform`}>
                   {isSolving ? 'sync' : 'bolt'}
                 </span>
-                <span>{isSolving ? 'Recomputing Optimal Mesh...' : 'Run Optimization Solver'}</span>
+                <span>{isSolving ? 'Calculating Optimal Allocations...' : 'Run Optimization'}</span>
               </button>
               <button
                 className="px-space-md py-3 rounded-lg bg-surface-container text-on-surface hover:bg-surface-container-high font-label-md text-label-md transition-colors flex items-center gap-2 border border-surface-container-highest/60"
@@ -455,7 +455,7 @@ export const AllocationOptimizer: React.FC = () => {
                 type="button"
               >
                 <span className="material-symbols-outlined text-base">restart_alt</span>
-                <span>Reset Baseline</span>
+                <span>Reset to Baseline</span>
               </button>
             </div>
 
@@ -467,9 +467,10 @@ export const AllocationOptimizer: React.FC = () => {
                 onChange={(e) => setCompareBenchmark(e.target.checked)}
               />
               <span className="font-label-sm text-label-sm text-on-surface">
-                Compare All 3 Algorithms Side-by-Side
+                Compare Strategy Differences
               </span>
             </label>
+
             <button
               type="button"
               onClick={() => {
@@ -537,25 +538,25 @@ export const AllocationOptimizer: React.FC = () => {
                   98.5%
                 </span>
                 <span className="font-label-sm text-label-sm text-primary block font-mono">
-                  Δ +14.2% vs Manual
+                  +14.2% vs Manual Quota
                 </span>
               </div>
               <div className="bg-surface-container-lowest p-space-sm rounded-lg space-y-1 border border-surface-container/50">
-                <span className="font-label-sm text-label-sm text-outline block">Deadstock Risk</span>
+                <span className="font-label-sm text-label-sm text-outline block">Unsold Margin</span>
                 <span className="font-headline-sm text-headline-sm text-on-surface font-semibold font-mono">
                   150 Qty
                 </span>
-                <span className="font-label-sm text-label-sm text-tertiary block font-mono">
-                  -89.4% Reduction
+                <span className="font-label-sm text-label-sm text-secondary block font-mono">
+                  Emergency Reserve
                 </span>
               </div>
             </div>
 
-            {/* Micro Sparkline / Progress Visualization */}
+            {/* Progress Visualization */}
             <div className="space-y-space-xs pt-space-xs">
               <div className="flex justify-between text-label-sm font-label-sm text-on-surface-variant font-mono">
                 <span>Inventory Allocation Rate</span>
-                <span className="text-primary font-bold">{totalAllocated.toLocaleString()} / {totalPasses.toLocaleString()} Issued</span>
+                <span className="text-primary font-bold">{totalAllocated.toLocaleString()} / {totalPasses.toLocaleString()} Passes</span>
               </div>
               <div className="w-full h-2 bg-surface-container-lowest rounded-full overflow-hidden flex">
                 <div className="h-full bg-primary-container" style={{ width: '82%' }} />
@@ -563,22 +564,22 @@ export const AllocationOptimizer: React.FC = () => {
                 <div className="h-full bg-outline-variant" style={{ width: '1.5%' }} />
               </div>
               <div className="flex justify-between text-label-sm font-label-sm text-outline font-mono">
-                <span>Primary Allocation</span>
-                <span>Reserve Margin</span>
-                <span>Buffer</span>
+                <span>Tier-1 Partners</span>
+                <span>Tier-2 &amp; Tier-3</span>
+                <span>Gate Reserve</span>
               </div>
             </div>
           </div>
 
-          {/* Solver Latency & Performance Badge */}
+          {/* Solver Latency Badge */}
           <div className="bg-surface-container-low rounded-xl p-space-md shadow-md flex items-center justify-between border border-surface-container/60">
             <div className="flex items-center gap-space-sm">
               <div className="w-9 h-9 rounded-lg bg-surface-container-highest flex items-center justify-center text-secondary">
-                <span className="material-symbols-outlined text-lg">timer</span>
+                <span className="material-symbols-outlined text-lg">bolt</span>
               </div>
               <div>
                 <span className="font-label-sm text-label-sm uppercase tracking-wider text-outline block font-mono">
-                  DP Execution Time
+                  Calculation Latency
                 </span>
                 <span className="font-headline-sm text-headline-sm text-on-surface font-mono">
                   {latencyMs} ms
@@ -586,109 +587,97 @@ export const AllocationOptimizer: React.FC = () => {
               </div>
             </div>
             <div className="text-right">
-              <span className="font-label-sm text-label-sm text-secondary bg-surface-container-high px-2 py-1 rounded font-mono">
-                6 × 10,000 Cells
+              <span className="font-label-sm text-label-sm text-secondary bg-surface-container-high px-2 py-1 rounded font-mono font-semibold">
+                Instant Response
               </span>
               <span className="font-body-sm text-body-sm text-outline block mt-0.5 font-mono">
-                O(W) Space Hit
+                6 Verified Partners
               </span>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Comparative Side-by-Side Algorithm Benchmark Card (Collapsible) */}
+      {/* Comparative Side-by-Side Benchmark Card */}
       {compareBenchmark && (
         <div className="bg-surface-container-low rounded-xl p-space-lg shadow-md space-y-space-md border border-surface-container/60 animate-in fade-in duration-200">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-space-xs">
               <span className="material-symbols-outlined text-primary text-xl">compare_arrows</span>
               <h3 className="font-headline-sm text-headline-sm text-on-surface">
-                Algorithmic Trade-off Analysis: 3 Paradigms
+                Allocation Strategy Comparison &amp; Revenue Projection
               </h3>
             </div>
             <span className="font-label-sm text-label-sm text-outline uppercase font-mono">
-              N=6 Sellers, W={totalPasses.toLocaleString()}
+              6 Partners • {totalPasses.toLocaleString()} Passes
             </span>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-space-md">
-            {/* Heuristic */}
+            {/* Rapid Priority */}
             <div className="bg-surface-container p-space-md rounded-xl space-y-space-sm border border-surface-container-highest/40">
               <div className="flex justify-between items-center">
                 <span className="font-headline-sm text-headline-sm text-base text-on-surface font-semibold">
-                  Greedy Heuristic
+                  Rapid Priority
                 </span>
-                <span className="font-label-sm text-label-sm text-outline font-mono">O(n log n)</span>
+                <span className="font-label-sm text-label-sm text-outline font-mono">0.14 ms</span>
               </div>
               <p className="font-body-sm text-body-sm text-on-surface-variant">
-                Ranks sellers by marginal yield per pass. Fast but violates quota fairness floors on high demand variance.
+                Ranks partners by historical demand velocity. Fast, but leaves minor revenue on the table.
               </p>
               <div className="space-y-1 pt-space-xs">
                 <div className="flex justify-between font-label-sm text-label-sm font-mono">
-                  <span className="text-outline">Latency:</span>
-                  <span className="text-on-surface">0.14 ms</span>
+                  <span className="text-outline">Projected Revenue:</span>
+                  <span className="text-on-surface font-semibold">₹66.80L</span>
                 </div>
                 <div className="flex justify-between font-label-sm text-label-sm font-mono">
-                  <span className="text-outline">Gross Revenue:</span>
-                  <span className="text-on-surface">₹66.80L</span>
-                </div>
-                <div className="flex justify-between font-label-sm text-label-sm font-mono">
-                  <span className="text-outline">Optimality:</span>
-                  <span className="text-secondary">~95.4% (Sub-optimal)</span>
+                  <span className="text-outline">Fulfillment Efficiency:</span>
+                  <span className="text-secondary font-semibold">95.4%</span>
                 </div>
               </div>
             </div>
 
-            {/* Dynamic Programming (Winner) */}
+            {/* Yield Maximizer (Recommended) */}
             <div className="bg-surface-container-high p-space-md rounded-xl space-y-space-sm shadow-sm relative border border-primary/40">
               <div className="flex justify-between items-center">
                 <span className="font-headline-sm text-headline-sm text-base text-primary font-bold">
-                  Dynamic Programming
+                  Yield Maximizer
                 </span>
-                <span className="font-label-sm text-label-sm text-primary font-bold font-mono">O(n · W)</span>
+                <span className="font-label-sm text-label-sm text-primary font-bold font-mono">1.84 ms</span>
               </div>
               <p className="font-body-sm text-body-sm text-on-surface">
-                1D rolling buffer memoization over fractional state steps. Optimal bounded revenue distribution.
+                Full-spectrum multi-tier quota balancing. Achieves global maximum revenue while preserving partner equity.
               </p>
               <div className="space-y-1 pt-space-xs">
                 <div className="flex justify-between font-label-sm text-label-sm font-mono">
-                  <span className="text-outline">Latency:</span>
-                  <span className="text-primary font-bold">1.84 ms</span>
-                </div>
-                <div className="flex justify-between font-label-sm text-label-sm font-mono">
-                  <span className="text-outline">Gross Revenue:</span>
+                  <span className="text-outline">Projected Revenue:</span>
                   <span className="text-primary font-bold">₹70.00L</span>
                 </div>
                 <div className="flex justify-between font-label-sm text-label-sm font-mono">
-                  <span className="text-outline">Optimality:</span>
-                  <span className="text-secondary font-bold">100.0% (Global Optimal)</span>
+                  <span className="text-outline">Fulfillment Efficiency:</span>
+                  <span className="text-secondary font-bold">100.0% (Optimal)</span>
                 </div>
               </div>
             </div>
 
-            {/* Branch & Bound */}
+            {/* Strict Precision */}
             <div className="bg-surface-container p-space-md rounded-xl space-y-space-sm border border-surface-container-highest/40">
               <div className="flex justify-between items-center">
                 <span className="font-headline-sm text-headline-sm text-base text-on-surface font-semibold">
-                  Branch &amp; Bound
+                  Exact Precision
                 </span>
-                <span className="font-label-sm text-label-sm text-outline font-mono">O(2ⁿ) Pruned</span>
+                <span className="font-label-sm text-label-sm text-outline font-mono">11.60 ms</span>
               </div>
               <p className="font-body-sm text-body-sm text-on-surface-variant">
-                Traverses state-space tree using linear programming relaxations as upper bounds to prune branches.
+                Enforces micro-quotas with zero margin tolerance for high-compliance auditing.
               </p>
               <div className="space-y-1 pt-space-xs">
                 <div className="flex justify-between font-label-sm text-label-sm font-mono">
-                  <span className="text-outline">Latency:</span>
-                  <span className="text-on-surface">11.60 ms</span>
+                  <span className="text-outline">Projected Revenue:</span>
+                  <span className="text-on-surface font-semibold">₹70.00L</span>
                 </div>
                 <div className="flex justify-between font-label-sm text-label-sm font-mono">
-                  <span className="text-outline">Gross Revenue:</span>
-                  <span className="text-on-surface">₹70.00L</span>
-                </div>
-                <div className="flex justify-between font-label-sm text-label-sm font-mono">
-                  <span className="text-outline">Optimality:</span>
-                  <span className="text-secondary">100.0% (Global Optimal)</span>
+                  <span className="text-outline">Fulfillment Efficiency:</span>
+                  <span className="text-secondary font-semibold">100.0% (Optimal)</span>
                 </div>
               </div>
             </div>
@@ -696,22 +685,22 @@ export const AllocationOptimizer: React.FC = () => {
         </div>
       )}
 
-      {/* Real-time Results & Comparative Allocation Matrix Table */}
+      {/* Allocation Matrix Table */}
       <section className="bg-surface-container-low rounded-xl shadow-md overflow-hidden flex flex-col border border-surface-container/60">
         <div className="p-space-md flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm bg-surface-container-high/40 border-b border-surface-container">
           <div className="space-y-0.5">
             <h2 className="font-headline-sm text-headline-sm text-on-surface flex items-center gap-2">
               <span className="material-symbols-outlined text-primary text-xl">table_chart</span>
-              Comparative Allocation Matrix: Status Quo vs Solver Recommendation
+              Comparative Partner Quota Matrix: Current Quota vs Optimized Allocation
             </h2>
             <p className="font-body-sm text-body-sm text-on-surface-variant">
-              Live recalculation of seller-specific quota allocations, demand satiation, and revenue delta.
+              Live adjustments across partner outlets, demand satisfaction percentages, and projected regional revenue.
             </p>
           </div>
           <div className="flex items-center gap-space-sm">
-            <span className="font-label-sm text-label-sm text-outline">Live Filter:</span>
+            <span className="font-label-sm text-label-sm text-outline">Network:</span>
             <span className="font-label-sm text-label-sm text-secondary bg-surface-container px-2 py-1 rounded font-mono">
-              All 6 Verified Channels
+              6 Active Partner Hubs
             </span>
           </div>
         </div>
@@ -724,10 +713,10 @@ export const AllocationOptimizer: React.FC = () => {
                 <th className="py-space-sm px-space-md text-right">True Demand</th>
                 <th className="py-space-sm px-space-md text-right">Current Quota</th>
                 <th className="py-space-sm px-space-md text-right text-primary font-bold">Optimized Quota</th>
-                <th className="py-space-sm px-space-md text-center">Net Shift (Δ)</th>
+                <th className="py-space-sm px-space-md text-center">Net Adjustment (Δ)</th>
                 <th className="py-space-sm px-space-md text-right">Fill Rate</th>
                 <th className="py-space-sm px-space-md text-right">Exp. Revenue</th>
-                <th className="py-space-sm px-space-md text-center">Risk Index</th>
+                <th className="py-space-sm px-space-md text-center">Risk Assessment</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-surface-container/40">
@@ -815,124 +804,120 @@ export const AllocationOptimizer: React.FC = () => {
         </div>
       </section>
 
-      {/* Bottom Technical DAA Section: Rigorous Complexity & Solver Trace */}
+      {/* Operational Audit & Distribution Insights */}
       <section className="space-y-space-md">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-space-xs">
           <div>
             <span className="font-label-sm text-label-sm uppercase tracking-wider text-primary font-mono">
-              Algorithmic Foundation
+              Operational Insights
             </span>
             <h2 className="font-headline-md text-headline-md text-on-surface">
-              Algorithm Performance &amp; Rigorous Complexity Analysis
+              Distribution Guarantees &amp; Safeguards
             </h2>
           </div>
           <span className="font-label-sm text-label-sm text-outline font-mono">
-            Engine Kernel: POSIX C++20 Compiled Wasm
+            Status: Fully Balanced
           </span>
         </div>
 
-        {/* 4 Monospace Technical Metric Cards */}
+        {/* 4 Executive Metric Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-space-md">
-          {/* Card 1: Time Complexity */}
           <div className="bg-surface-container-low p-space-md rounded-xl space-y-space-xs shadow-md border border-surface-container/60">
             <div className="flex items-center justify-between text-outline">
-              <span className="font-label-sm text-label-sm uppercase tracking-wider font-mono">Time Complexity</span>
-              <span className="material-symbols-outlined text-base text-primary">schedule</span>
+              <span className="font-label-sm text-label-sm uppercase tracking-wider font-mono">Throughput Guarantee</span>
+              <span className="material-symbols-outlined text-base text-primary">speed</span>
             </div>
             <div className="font-label-lg text-label-lg text-primary font-bold font-mono">
-              O(n · W) = 60,000 ops
+              &lt; 2 ms Execution
             </div>
             <p className="font-body-sm text-body-sm text-on-surface-variant">
-              n=6 partner nodes, W=10,000 units. Pseudo-polynomial execution with zero recursive overhead.
+              Instantaneous calculation handles up to 25,000 passes across regional nodes without lag.
             </p>
           </div>
 
-          {/* Card 2: Space Complexity */}
           <div className="bg-surface-container-low p-space-md rounded-xl space-y-space-xs shadow-md border border-surface-container/60">
             <div className="flex items-center justify-between text-outline">
-              <span className="font-label-sm text-label-sm uppercase tracking-wider font-mono">Space Complexity</span>
-              <span className="material-symbols-outlined text-base text-secondary">memory</span>
+              <span className="font-label-sm text-label-sm uppercase tracking-wider font-mono">Buffer Reserve</span>
+              <span className="material-symbols-outlined text-base text-secondary">shield</span>
             </div>
             <div className="font-label-lg text-label-lg text-secondary font-bold font-mono">
-              O(W) = 80 KB Buffer
+              150 Emergency Passes
             </div>
             <p className="font-body-sm text-body-sm text-on-surface-variant">
-              Optimized from 2D O(n·W) (480 KB) down to a single flattened 1D rolling array with backwards iteration.
+              Safely withheld for walk-in VIPs, festival artists, and emergency gate ticketing.
             </p>
           </div>
 
-          {/* Card 3: State Transitions */}
           <div className="bg-surface-container-low p-space-md rounded-xl space-y-space-xs shadow-md border border-surface-container/60">
             <div className="flex items-center justify-between text-outline">
-              <span className="font-label-sm text-label-sm uppercase tracking-wider font-mono">State Transition</span>
-              <span className="material-symbols-outlined text-base text-primary">swap_horiz</span>
+              <span className="font-label-sm text-label-sm uppercase tracking-wider font-mono">Fairness Floor</span>
+              <span className="material-symbols-outlined text-base text-primary">balance</span>
             </div>
-            <div className="font-label-sm text-label-sm text-on-surface font-mono tracking-tighter truncate">
-              DP[w] = max(DP[w], DP[w-w_i] + v_i)
+            <div className="font-label-sm text-label-sm text-on-surface font-mono font-semibold">
+              Guaranteed Quota Minima
             </div>
             <p className="font-body-sm text-body-sm text-on-surface-variant">
-              Recurrence relation incorporates revenue margin v_i weighted by tier priority multiplier α and fairness floor γ.
+              Every authorized seller receives at least 40% of localized baseline demand to maintain community ties.
             </p>
           </div>
 
-          {/* Card 4: Optimality Certificate */}
           <div className="bg-surface-container-low p-space-md rounded-xl space-y-space-xs shadow-md border border-surface-container/60">
             <div className="flex items-center justify-between text-outline">
-              <span className="font-label-sm text-label-sm uppercase tracking-wider font-mono">Optimality Certificate</span>
+              <span className="font-label-sm text-label-sm uppercase tracking-wider font-mono">Zero Overselling</span>
               <span className="material-symbols-outlined text-base text-secondary">verified</span>
             </div>
             <div className="font-label-lg text-label-lg text-secondary font-bold font-mono">
-              Bellman&apos;s Principle
+              100% Capacity Safe
             </div>
             <p className="font-body-sm text-body-sm text-on-surface-variant">
-              Guaranteed sub-problem optimality holds over entire discrete pass capacity space. Zero duality gap.
+              Mathematical guarantees prevent overbooking beyond verified venue gate capacity.
             </p>
           </div>
         </div>
 
-        {/* Live Step-by-Step Solver Execution Trace Log Drawer */}
+        {/* Live Step-by-Step Distribution Audit */}
         <div className="bg-surface-container-lowest rounded-xl p-space-md shadow-md space-y-space-xs border border-surface-container/60">
           <div className="flex items-center justify-between pb-1">
             <div className="flex items-center gap-space-xs">
-              <span className="inline-block w-2 h-2 rounded-full bg-primary-container animate-pulse" />
+              <span className="inline-block w-2 h-2 rounded-full bg-secondary animate-pulse" />
               <span className="font-label-sm text-label-sm uppercase tracking-widest text-outline font-mono">
-                Live Solver Trace Engine · Memoization Cache
+                Real-Time Allocation Sequence Audit
               </span>
             </div>
             <span className="font-label-sm text-label-sm text-outline font-mono">
-              Kernel Thread #04 [AFFINITY_CORE_0]
+              Execution Thread Active
             </span>
           </div>
           <div className="bg-surface-container-high/40 rounded-lg p-space-md font-mono text-label-sm text-label-sm space-y-1.5 overflow-x-auto text-on-surface-variant max-h-48 overflow-y-auto border border-surface-container/40">
             <div className="flex items-center gap-3">
               <span className="text-outline">[00:00:00.000]</span>
-              <span className="text-primary font-bold">INIT:</span>
-              <span>Allocated 1D vector DP[0..{totalPasses}] initialized to 0. Min_Quotas verified against total capacity pool.</span>
+              <span className="text-primary font-bold">INITIALIZE:</span>
+              <span>Total allocation pool verified at {totalPasses.toLocaleString()} passes. Baseline partner demands loaded.</span>
             </div>
             <div className="flex items-center gap-3">
               <span className="text-outline">[00:00:00.001]</span>
-              <span className="text-secondary">STAGE 1:</span>
-              <span>Seller A (Karnavati Garba Hub) bound evaluated: min=1200, max=3200. Memo table updated for capacity steps.</span>
+              <span className="text-secondary">TIER-1 HUB:</span>
+              <span>Seller A (Karnavati Garba Hub) allocated +650 passes based on 3,200 peak verified buyer demand.</span>
             </div>
             <div className="flex items-center gap-3">
               <span className="text-outline">[00:00:00.001]</span>
-              <span className="text-secondary">STAGE 2:</span>
-              <span>Seller B (Sarkhej Youth Club) bound evaluated: min=1000, max=2800. Transition checked: 10,000 states verified.</span>
+              <span className="text-secondary">TIER-1 CLUB:</span>
+              <span>Seller B (Sarkhej Youth Club) allocated +400 passes to support highway corridor sales rush.</span>
             </div>
             <div className="flex items-center gap-3">
               <span className="text-outline">[00:00:00.002]</span>
-              <span className="text-secondary">STAGE 3-5:</span>
-              <span>Sellers C, D, E processed. Dynamic bounding pruned 4,210 redundant states lacking marginal yield advantage.</span>
+              <span className="text-secondary">TIER-2 DESKS:</span>
+              <span>Navrangpura &amp; Maninagar points balanced with 92.8% and 96.6% demand fulfillment rates.</span>
             </div>
             <div className="flex items-center gap-3">
               <span className="text-outline">[00:00:00.002]</span>
-              <span className="text-tertiary">STAGE 6:</span>
-              <span>Seller F (Vastrapur Campus) constrained: Over-allocation penalty applied; quota trimmed to 400 passes.</span>
+              <span className="text-tertiary">RE-ROUTE:</span>
+              <span>Vastrapur Campus surplus quota trimmed by 600 passes to eliminate unsold pass risk.</span>
             </div>
             <div className="flex items-center gap-3">
               <span className="text-outline">[00:00:00.002]</span>
-              <span className="text-primary font-bold">TERMINATION:</span>
-              <span>Global Maxima reached at DP[9850] = {grossRevenue.toFixed(2)} Lakhs INR. Residual deadstock 150 reserved for emergency gates.</span>
+              <span className="text-primary font-bold">COMPLETION:</span>
+              <span>Optimal allocation finalized. ₹{grossRevenue.toFixed(2)} Lakhs projected yield with 98.5% sell-through.</span>
             </div>
           </div>
         </div>

@@ -82,11 +82,7 @@ export const QrVerification: React.FC = () => {
             Gate Verification &amp; Access Control Terminal
           </h1>
           <p className="font-body-md text-body-md text-on-surface-variant leading-relaxed">
-            Real-time entrance verification powered by{' '}
-            <span className="font-label-md text-label-md text-primary font-semibold font-mono">
-              O(1) Hash Table lookup
-            </span>{' '}
-            with instantaneous replay-attack and duplicate detection.
+            Real-time entrance verification powered by cryptographic signature validation and instant pass registry checks with zero-latency replay and duplicate detection.
           </p>
         </div>
 
@@ -700,181 +696,142 @@ export const QrVerification: React.FC = () => {
         </div>
       </div>
 
-      {/* Bottom Algorithmic Telemetry Deck: DAA Gate Verification Engine */}
+      {/* Gate Security & Turnstile Admission Stream */}
       <div className="bg-surface-container-low rounded-xl p-space-lg shadow-xl space-y-space-md border border-surface-container/60">
-        {/* Telemetry Section Title */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm pb-space-xs border-b border-surface-container">
           <div className="flex items-center gap-space-sm">
             <div className="w-7 h-7 rounded bg-secondary/10 text-secondary flex items-center justify-center">
-              <span className="material-symbols-outlined text-base">memory</span>
+              <span className="material-symbols-outlined text-base">verified_user</span>
             </div>
             <div>
               <h2 className="font-headline-sm text-headline-sm text-on-surface">
-                DAA Gate Verification Engine
+                Gate Turnstile Security &amp; Activity Log
               </h2>
               <p className="font-label-sm text-label-sm text-outline font-mono">
-                Deterministic constant-time hashing &amp; zero-overhead duplicate indexing
+                Continuous hardware handshake &amp; synchronized turnstile token invalidation
               </p>
             </div>
           </div>
-          <button
-            className="text-primary hover:text-primary-fixed font-label-sm text-label-sm flex items-center gap-1 transition-colors self-start sm:self-auto font-mono"
-            onClick={() => setShowBucketVis(!showBucketVis)}
-            type="button"
-          >
-            <span className="material-symbols-outlined text-base">account_tree</span>
-            <span>{showBucketVis ? 'Hide' : 'Show'} Hash Bucket Visualizer</span>
-          </button>
+          <span className="text-xs px-2.5 py-1 rounded bg-secondary/10 text-secondary font-mono font-semibold">
+            All 4 Portals Synchronized
+          </span>
         </div>
 
-        {/* 5 High-Density Metric Grid */}
+        {/* 5 Security Metric Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-space-sm">
-          {/* Metric 1 */}
           <div className="bg-surface-container p-space-sm rounded-lg flex flex-col justify-between space-y-2 border border-surface-container-highest/40">
             <span className="font-label-sm text-label-sm text-outline uppercase tracking-wider font-mono">
-              Search Method
+              Integrity Check
             </span>
             <div className="font-label-md text-label-md text-primary font-semibold truncate font-mono">
-              Open-Addressing Hash
+              SHA256 Protected
             </div>
             <span className="font-label-sm text-label-sm text-on-surface-variant font-mono">
-              MurmurHash3 + Robin Hood
+              Hardware Tamper Proof
             </span>
           </div>
 
-          {/* Metric 2 */}
           <div className="bg-surface-container p-space-sm rounded-lg flex flex-col justify-between space-y-2 border border-surface-container-highest/40">
             <span className="font-label-sm text-label-sm text-outline uppercase tracking-wider font-mono">
-              Average Complexity
+              Admission Speed
             </span>
             <div className="font-headline-sm text-headline-sm text-secondary font-bold font-mono">
-              O(1)
+              &lt; 0.05 ms
             </div>
             <span className="font-label-sm text-label-sm text-on-surface-variant font-mono">
-              Constant time probe sequence
+              Sub-millisecond verification
             </span>
           </div>
 
-          {/* Metric 3 */}
           <div className="bg-surface-container p-space-sm rounded-lg flex flex-col justify-between space-y-2 border border-surface-container-highest/40">
             <span className="font-label-sm text-label-sm text-outline uppercase tracking-wider font-mono">
-              Worst Case Guard
+              Anti-Passback Guard
             </span>
             <div className="font-label-md text-label-md text-on-surface font-semibold font-mono">
-              O(n) → Mitigated
+              100% Interception
             </div>
             <span className="font-label-sm text-label-sm text-on-surface-variant font-mono">
-              Load factor α &lt; 0.65 threshold
+              Zero duplicate entries
             </span>
           </div>
 
-          {/* Metric 4 */}
           <div className="bg-surface-container p-space-sm rounded-lg flex flex-col justify-between space-y-2 border border-surface-container-highest/40">
             <span className="font-label-sm text-label-sm text-outline uppercase tracking-wider font-mono">
-              Measured Lookup
+              Turnstile Solenoid
             </span>
             <div className="font-headline-sm text-headline-sm text-primary font-bold font-mono">
-              0.042 ms
+              Arm Locked
             </div>
             <span className="font-label-sm text-label-sm text-on-surface-variant font-mono">
-              L1/L2 cache resident lookup
+              Auto-relock after 4.0s
             </span>
           </div>
 
-          {/* Metric 5 */}
           <div className="bg-surface-container p-space-sm rounded-lg flex flex-col justify-between space-y-2 border border-surface-container-highest/40">
             <span className="font-label-sm text-label-sm text-outline uppercase tracking-wider font-mono">
-              Throughput Capacity
+              Gate Throughput
             </span>
             <div className="font-headline-sm text-headline-sm text-secondary font-bold font-mono">
-              23.8k/min
+              412 / min
             </div>
             <span className="font-label-sm text-label-sm text-on-surface-variant font-mono">
-              Theoretical distributed ceiling
+              Peak flow capacity
             </span>
           </div>
         </div>
 
-        {/* Collapsible Hash Bucket Visualizer Module */}
-        {showBucketVis && (
-          <div className="p-space-md bg-surface-container-lowest rounded-xl space-y-space-sm border border-surface-container/60">
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between text-label-sm font-label-sm text-outline gap-2 font-mono">
-              <div className="flex items-center gap-2">
-                <span className="material-symbols-outlined text-secondary text-sm">terminal</span>
-                <span className="text-on-surface">
-                  hash(&quot;NAV-84291&quot;) % 65536 ={' '}
-                  <span className="text-primary font-bold">41208</span>
-                </span>
+        {/* Live Gate Admission Stream */}
+        <div className="p-space-md bg-surface-container-lowest rounded-xl space-y-space-sm border border-surface-container/60">
+          <div className="flex items-center justify-between text-xs font-mono text-outline border-b border-surface-container pb-2">
+            <span className="text-on-surface font-semibold flex items-center gap-1.5">
+              <span className="w-2 h-2 rounded-full bg-secondary animate-pulse" />
+              Live Gate Turnstile Stream (Recent Verified Admissions)
+            </span>
+            <span>All 4 Gates Armed</span>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-2 pt-1 font-mono text-xs">
+            <div className="p-2.5 bg-surface-container rounded-lg border border-surface-container-highest/50">
+              <div className="flex justify-between text-outline text-[11px]">
+                <span>Gate 02 • Turnstile B</span>
+                <span className="text-secondary font-bold">GRANTED</span>
               </div>
-              <div className="flex items-center gap-3">
-                <span>
-                  Bucket Status: <span className="text-secondary font-bold">DIRECT_HIT</span>
-                </span>
-                <span>
-                  Collisions: <span className="text-on-surface">0</span>
-                </span>
-                <span>
-                  Probe Depth: <span className="text-primary font-bold">1</span>
-                </span>
-              </div>
+              <div className="font-bold text-on-surface text-sm mt-1">#NAV-84291</div>
+              <div className="text-[11px] text-on-surface-variant truncate">Rahul Patel (Gold Couple)</div>
+              <div className="text-[10px] text-outline mt-1">20:14:08 IST • 0.04ms</div>
             </div>
 
-            {/* Bucket Cells Array Demonstration */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-8 gap-2 font-mono text-center pt-1">
-              <div className="p-2 bg-surface-container rounded text-outline text-label-sm opacity-60 border border-surface-container-highest/40">
-                <div className="text-[9px] uppercase">Slot 41205</div>
-                <div className="truncate text-on-surface-variant">#NAV-31994</div>
-                <div className="text-[9px] text-outline">USED</div>
+            <div className="p-2.5 bg-surface-container rounded-lg border border-surface-container-highest/50">
+              <div className="flex justify-between text-outline text-[11px]">
+                <span>Gate A1 • VIP Fastrack</span>
+                <span className="text-secondary font-bold">GRANTED</span>
               </div>
-              <div className="p-2 bg-surface-container rounded text-outline text-label-sm opacity-60 border border-surface-container-highest/40">
-                <div className="text-[9px] uppercase">Slot 41206</div>
-                <div className="truncate text-on-surface-variant">••• EMPTY</div>
-                <div className="text-[9px] text-outline">NULL</div>
-              </div>
-              <div className="p-2 bg-surface-container rounded text-outline text-label-sm opacity-60 border border-surface-container-highest/40">
-                <div className="text-[9px] uppercase">Slot 41207</div>
-                <div className="truncate text-on-surface-variant">#NAV-65102</div>
-                <div className="text-[9px] text-outline">USED</div>
-              </div>
-
-              {/* TARGET BUCKET */}
-              <div className="p-2 bg-primary/20 rounded text-label-sm font-semibold shadow-sm ring-1 ring-primary/40 border border-primary">
-                <div className="text-[9px] uppercase text-primary font-bold">Slot 41208 • TARGET</div>
-                <div className="truncate text-primary font-bold">#NAV-84291</div>
-                <div className="text-[9px] text-secondary">PTR → 0x7FFF9E1</div>
-              </div>
-
-              <div className="p-2 bg-surface-container rounded text-outline text-label-sm opacity-60 border border-surface-container-highest/40">
-                <div className="text-[9px] uppercase">Slot 41209</div>
-                <div className="truncate text-on-surface-variant">••• EMPTY</div>
-                <div className="text-[9px] text-outline">NULL</div>
-              </div>
-              <div className="p-2 bg-surface-container rounded text-outline text-label-sm opacity-60 border border-surface-container-highest/40">
-                <div className="text-[9px] uppercase">Slot 41210</div>
-                <div className="truncate text-on-surface-variant">#NAV-99120</div>
-                <div className="text-[9px] text-outline">USED</div>
-              </div>
-              <div className="p-2 bg-surface-container rounded text-outline text-label-sm opacity-60 border border-surface-container-highest/40">
-                <div className="text-[9px] uppercase">Slot 41211</div>
-                <div className="truncate text-on-surface-variant">••• EMPTY</div>
-                <div className="text-[9px] text-outline">NULL</div>
-              </div>
-              <div className="p-2 bg-surface-container rounded text-outline text-label-sm opacity-60 border border-surface-container-highest/40">
-                <div className="text-[9px] uppercase">Slot 41212</div>
-                <div className="truncate text-on-surface-variant">#NAV-12004</div>
-                <div className="text-[9px] text-outline">USED</div>
-              </div>
+              <div className="font-bold text-on-surface text-sm mt-1">#NAV-10328</div>
+              <div className="text-[11px] text-on-surface-variant truncate">Aarav Joshi (Platinum)</div>
+              <div className="text-[10px] text-outline mt-1">20:14:02 IST • 0.03ms</div>
             </div>
 
-            <div className="font-label-sm text-label-sm text-on-surface-variant pt-1 flex items-center justify-between font-mono">
-              <span className="flex items-center gap-1">
-                <span className="material-symbols-outlined text-sm text-primary">memory</span>
-                Bucket Load Factor: α = 34,912 / 65,536 (0.532) • Rehash Overhead: Idle
-              </span>
-              <span className="text-outline">Direct Pointer Dereference: 14 nanoseconds</span>
+            <div className="p-2.5 bg-surface-container rounded-lg border border-surface-container-highest/50">
+              <div className="flex justify-between text-outline text-[11px]">
+                <span>Gate B2 • Turnstile</span>
+                <span className="text-secondary font-bold">GRANTED</span>
+              </div>
+              <div className="font-bold text-on-surface text-sm mt-1">#NAV-10164</div>
+              <div className="text-[11px] text-on-surface-variant truncate">Kavita Dave (Heritage)</div>
+              <div className="text-[10px] text-outline mt-1">20:13:12 IST • 0.04ms</div>
+            </div>
+
+            <div className="p-2.5 bg-surface-container rounded-lg border border-error/40 bg-error-container/10">
+              <div className="flex justify-between text-outline text-[11px]">
+                <span>Gate 02 • Turnstile A</span>
+                <span className="text-error font-bold">BLOCKED</span>
+              </div>
+              <div className="font-bold text-error text-sm mt-1">#NAV-84291</div>
+              <div className="text-[11px] text-error truncate">Duplicate Replay Attempt</div>
+              <div className="text-[10px] text-outline mt-1">20:13:59 IST • Solenoid Locked</div>
             </div>
           </div>
-        )}
+        </div>
       </div>
     </div>
   );

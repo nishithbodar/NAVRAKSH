@@ -10,10 +10,6 @@ export type ScreenId =
   | 'allocation-optimizer'
   | 'group-booking'
   | 'event-conflicts'
-  | 'algorithm-engine'
-  | 'dsa-visualizer'
-  | 'benchmark-lab'
-  | 'complexity-analyzer'
   | 'sales-intelligence'
   | 'performance'
   | 'reports'
@@ -49,6 +45,8 @@ export interface SellerAllocation {
   fillRate: number;
   expRevenueLakhs: number;
   risk: 'Low' | 'Minimal' | 'Re-routed';
+  contactPerson?: string;
+  phone?: string;
 }
 
 export interface GateScanEvent {
@@ -61,4 +59,58 @@ export interface GateScanEvent {
   status: 'GRANTED' | 'DUPLICATE_ALERT' | 'INVALID_HASH';
   tier: string;
   latencyMs: number;
+}
+
+export interface PassRecord {
+  id: string;
+  holder: string;
+  phone: string;
+  tier: string;
+  nights: string;
+  gate: string;
+  hash: string;
+  status: 'ACTIVE' | 'SCANNED' | 'QUARANTINED';
+  seller: string;
+  priceInr: number;
+  rfidToken: string;
+  scannedAt?: string;
+}
+
+export interface VenueSlot {
+  id: string;
+  title: string;
+  venue: string;
+  hall: string;
+  date: string;
+  startTime: string;
+  endTime: string;
+  performer: string;
+  soundLevelDb: number;
+  status: 'CONFIRMED' | 'FLAGGED' | 'COMPLETED';
+  notes?: string;
+}
+
+export interface PriorityRequest {
+  id: string;
+  category: 'VIP Pass' | 'Seller Quota' | 'Emergency Access' | 'Troupe Bulk';
+  requestor: string;
+  details: string;
+  priorityScore: number; // 1 to 5 (5 highest)
+  timestamp: string;
+  status: 'PENDING' | 'APPROVED' | 'DISPATCHED';
+}
+
+export interface TroupeBooking {
+  id: string;
+  troupeName: string;
+  leaderName: string;
+  leaderPhone: string;
+  category: 'Garba Troupe' | 'Raas Dandiya' | 'Corporate Delegation' | 'Family VIP';
+  memberCount: number;
+  selectedTier: string;
+  totalCostInr: number;
+  assignedGate: string;
+  nights: string;
+  status: 'CONFIRMED' | 'PENDING' | 'CHECKED_IN';
+  members: string[];
 }
